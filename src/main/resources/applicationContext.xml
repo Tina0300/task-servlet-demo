@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 1.创建dal层bean -->
+    <bean id="taskDal" class="cn.edu.mju.band.dal.impl.TaskDal"/>
+
+    <!-- 2.创建buss层bean，构造器注入taskDal -->
+    <bean id="taskBuss" class="cn.edu.mju.band.buss.impl.TaskBuss">
+        <constructor-arg ref="taskDal"/>
+    </bean>
+
+</beans>
