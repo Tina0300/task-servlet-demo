@@ -1,15 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
-        https://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans
+            https://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context
+            https://www.springframework.org/schema/context/spring-context.xsd
+            http://www.springframework.org/schema/tx
+            https://www.springframework.org/schema/tx/spring-tx.xsd">
 
-    <!-- 1.创建dal层bean -->
-    <bean id="taskDal" class="cn.edu.mju.band.dal.impl.TaskDal"/>
+    <context:property-placeholder location="classpath:jdbc.properties"/>
 
-    <!-- 2.创建buss层bean，构造器注入taskDal -->
-    <bean id="taskBuss" class="cn.edu.mju.band.buss.impl.TaskBuss">
-        <constructor-arg ref="taskDal"/>
+    <!-- 根容器：只管理业务层(buss)与数据层(dal)，控制器由 spring-mvc.xml 管理 -->
+    <context:component-scan base-package="cn.edu.mju.band">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <!-- ==================== 数据源（MyBatis 使用） ==================== -->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${jdbc.driver}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
     </bean>
+
+    <!-- ==================== MyBatis SqlSessionFactory ==================== -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="typeAliasesPackage" value="cn.edu.mju.band.entity"/>
+        <property name="mapperLocations" value="classpath:mapper/*.xml"/>
+        <property name="configuration">
+            <bean class="org.apache.ibatis.session.Configuration">
+                <property name="mapUnderscoreToCamelCase" value="true"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- ==================== Mapper 接口扫描注册 ==================== -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="cn.edu.mju.band.dal.mapper"/>
+    </bean>
+
+    <!-- ==================== 事务管理 ==================== -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <tx:annotation-driven transaction-manager="transactionManager"/>
 
 </beans>

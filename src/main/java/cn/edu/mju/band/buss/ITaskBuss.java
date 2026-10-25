@@ -5,9 +5,11 @@ import java.util.List;
 
 public interface ITaskBuss {
     List<Task> list();
+    Task getById(Integer id);
     boolean add(Task task);
     boolean update(Task task);
-    Task findById(int id);
-    boolean delete(int id);
-    Task findById(Integer id);
+    boolean delete(Integer id);
+    boolean startTask(Integer id);
+    boolean finishTask(Integer id);
+    boolean cancelTask(Integer id);
 }

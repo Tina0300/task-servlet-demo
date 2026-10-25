@@ -75,12 +75,20 @@
             color: #999;
             padding: 40px;
         }
+        .status-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 999px;
+            font-size: 12px;
+            color: #fff;
+            background: #7a7a7a;
+        }
     </style>
 </head>
 <body>
 <div class="container">
     <h2>任务列表</h2>
-    <a class="add-link" href="${pageContext.request.contextPath}/add.jsp">＋ 新增任务</a>
+    <a class="add-link" href="${pageContext.request.contextPath}/task/add">＋ 新增任务</a>
     <table>
         <tr>
             <th>ID</th>
@@ -92,30 +100,38 @@
             <th>操作</th>
         </tr>
         <%
-            List<Task> taskList = (List<Task>) request.getAttribute("taskList");
+            List<Task> taskList = (List<Task>) request.getAttribute("lst");
             if (taskList != null && !taskList.isEmpty()) {
                 for (Task item : taskList) {
-                    // 优先级数字转文字：1低 2中 3高
                     String p = item.getPriority();
                     String prio = "低";
                     if (p != null) {
                         if ("2".equals(p.trim())) prio = "中";
                         else if ("3".equals(p.trim())) prio = "高";
                     }
-                    // 创建时间格式化为 yyyy-MM-dd
                     String createDate = (item.getCreateDate() == null) ? ""
                             : new java.text.SimpleDateFormat("yyyy-MM-dd").format(item.getCreateDate());
+                    String dueDate = (item.getDueDate() == null) ? ""
+                            : new java.text.SimpleDateFormat("yyyy-MM-dd").format(item.getDueDate());
+                    String statusName = "待办";
+                    if (item.getStatus() != null) {
+                        if (item.getStatus() == 1) statusName = "进行中";
+                        else if (item.getStatus() == 2) statusName = "已完成";
+                    }
         %>
         <tr>
             <td><%=item.getId()%></td>
             <td class="task-title"><%=item.getTitle()%></td>
             <td><%=prio%></td>
-            <td><%=item.getStatus()%></td>
-            <td><%=item.getDueDate()%></td>
+            <td><span class="status-badge"><%=statusName%></span></td>
+            <td><%=dueDate%></td>
             <td><%=createDate%></td>
             <td>
-                <a href="${pageContext.request.contextPath}/task?op=toEdit&id=<%=item.getId()%>">编辑</a>
-                <a href="${pageContext.request.contextPath}/task?op=delete&id=<%=item.getId()%>" onclick="return confirm('确认删除？')">删除</a>
+                <a href="${pageContext.request.contextPath}/task/update?id=<%=item.getId()%>">编辑</a>
+                <a href="${pageContext.request.contextPath}/task/delete?id=<%=item.getId()%>" onclick="return confirm('确认删除？')">删除</a>
+                <a href="${pageContext.request.contextPath}/task/start?id=<%=item.getId()%>">开始</a>
+                <a href="${pageContext.request.contextPath}/task/finish?id=<%=item.getId()%>">完成</a>
+                <a href="${pageContext.request.contextPath}/task/cancel?id=<%=item.getId()%>">取消</a>
             </td>
         </tr>
         <%
