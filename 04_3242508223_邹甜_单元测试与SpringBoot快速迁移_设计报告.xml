@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?mso-application progid="Word.Document"?>
+<w:wordDocument xmlns:w="http://schemas.microsoft.com/office/word/2003/wordml"
+ xmlns:v="urn:schemas-microsoft-com:vml"
+ xmlns:w10="urn:schemas-microsoft-com:office:word"
+ xmlns:aml="http://schemas.microsoft.com/aml/2001/core"
+ xmlns:dt="uuid:C2F41010-0000-0000-C000-000000000046"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:sl="http://schemas.microsoft.com/schemaLibrary/2003/core"
+ w:macrosPresent="no" w:embeddedObjPresent="no" w:ocxPresent="no" xml:space="preserve">
+<w:fonts>
+<w:defaultFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:fareast="宋体" w:cs="Times New Roman"/>
+</w:fonts>
+<w:styles>
+<w:style w:type="paragraph" w:default="on" w:styleId="Normal">
+<w:name w:val="Normal"/>
+<w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:fareast="宋体"/><w:sz w:val="22"/><w:szCs w:val="22"/></w:rPr>
+</w:style>
+<w:style w:type="paragraph" w:styleId="CoverTitle">
+<w:name w:val="Cover Title"/>
+<w:basedOn w:val="Normal"/>
+<w:pPr><w:jc w:val="center"/><w:spacing w:before="240" w:after="240"/></w:pPr>
+<w:rPr><w:rFonts w:ascii="黑体" w:hAnsi="黑体" w:fareast="黑体"/><w:b/><w:sz w:val="44"/><w:szCs w:val="44"/></w:rPr>
+</w:style>
+<w:style w:type="paragraph" w:styleId="CoverSub">
+<w:name w:val="Cover Sub"/>
+<w:basedOn w:val="Normal"/>
+<w:pPr><w:jc w:val="center"/><w:spacing w:after="200"/></w:pPr>
+<w:rPr><w:rFonts w:ascii="黑体" w:hAnsi="黑体" w:fareast="黑体"/><w:b/><w:sz w:val="32"/><w:szCs w:val="32"/></w:rPr>
+</w:style>
+<w:style w:type="paragraph" w:styleId="CoverInfo">
+<w:name w:val="Cover Info"/>
+<w:basedOn w:val="Normal"/>
+<w:pPr><w:jc w:val="center"/><w:spacing w:after="80"/></w:pPr>
+<w:rPr><w:rFonts w:ascii="宋体" w:hAnsi="宋体" w:fareast="宋体"/><w:sz w:val="24"/><w:szCs w:val="24"/></w:rPr>
+</w:style>
+<w:style w:type="paragraph" w:styleId="H1">
+<w:name w:val="heading 1"/>
+<w:basedOn w:val="Normal"/>
+<w:pPr><w:spacing w:before="280" w:after="140"/><w:outlineLvl w:val="0"/></w:pPr>
+<w:rPr><w:rFonts w:ascii="黑体" w:hAnsi="黑体" w:fareast="黑体"/><w:b/><w:sz w:val="32"/><w:szCs w:val="32"/></w:rPr>
+</w:style>
+<w:style w:type="paragraph" w:styleId="H2">
+<w:name w:val="heading 2"/>
+<w:basedOn w:val="Normal"/>
+<w:pPr><w:spacing w:before="160" w:after="80"/><w:outlineLvl w:val="1"/></w:pPr>
+<w:rPr><w:rFonts w:ascii="黑体" w:hAnsi="黑体" w:fareast="黑体"/><w:b/><w:sz w:val="24"/><w:szCs w:val="24"/></w:rPr>
+</w:style>
+<w:style w:type="paragraph" w:styleId="Body">
+<w:name w:val="Body Text"/>
+<w:basedOn w:val="Normal"/>
+<w:pPr><w:spacing w:after="40" w:line="300" w:line-rule="auto"/><w:ind w:first-line="440"/></w:pPr>
+</w:style>
+<w:style w:type="paragraph" w:styleId="Bullet">
+<w:name w:val="List Text"/>
+<w:basedOn w:val="Normal"/>
+<w:pPr><w:spacing w:after="20" w:line="280" w:line-rule="auto"/><w:ind w:left="360" w:hanging="220"/></w:pPr>
+</w:style>
+<w:style w:type="paragraph" w:styleId="Code">
+<w:name w:val="Code Block"/>
+<w:basedOn w:val="Normal"/>
+<w:pPr><w:spacing w:before="40" w:after="100" w:line="240" w:line-rule="auto"/><w:ind w:left="240"/><w:shd w:val="clear" w:fill="F2F2F2"/></w:pPr>
+<w:rPr><w:rFonts w:ascii="Consolas" w:hAnsi="Consolas" w:fareast="Consolas"/><w:sz w:val="18"/><w:szCs w:val="18"/></w:rPr>
+</w:style>
+</w:styles>
+<w:body>
+
+<!-- ===================== 封面 ===================== -->
+<w:p><w:pPr><w:spacing w:after="600"/></w:pPr></w:p>
+<w:p><w:pPr><w:pStyle w:val="CoverTitle"/></w:pPr><w:r><w:t>Java高级编程实验报告</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="CoverSub"/></w:pPr><w:r><w:t>—— 单元测试与 SpringBoot 快速迁移</w:t></w:r></w:p>
+<w:p><w:pPr><w:spacing w:after="480"/></w:pPr></w:p>
+<w:p><w:pPr><w:pStyle w:val="CoverInfo"/></w:pPr><w:r><w:t>课程代号：33252070</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="CoverInfo"/></w:pPr><w:r><w:t>适用专业：软件工程</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="CoverInfo"/></w:pPr><w:r><w:t>先修课程：Java语言程序设计</w:t></w:r></w:p>
+<w:p><w:pPr><w:spacing w:after="360"/></w:pPr></w:p>
+
+<w:tbl>
+<w:tblPr><w:tblW w:w="8000" w:type="dxa"/>
+<w:jc w:val="center"/>
+<w:tblBorders>
+<w:top w:val="single" w:sz="4" w:space="0" w:color="000000"/>
+<w:left w:val="single" w:sz="4" w:space="0" w:color="000000"/>
+<w:bottom w:val="single" w:sz="4" w:space="0" w:color="000000"/>
+<w:right w:val="single" w:sz="4" w:space="0" w:color="000000"/>
+<w:insideH w:val="single" w:sz="4" w:space="0" w:color="000000"/>
+<w:insideV w:val="single" w:sz="4" w:space="0" w:color="000000"/>
+</w:tblBorders></w:tblPr>
+<w:tblGrid><w:gridCol w:w="2600"/><w:gridCol w:w="5400"/></w:tblGrid>
+<w:tr>
+<w:tc><w:tcPr><w:tcW w:w="2600" w:type="dxa"/><w:shd w:val="clear" w:fill="F2F2F2"/></w:tcPr>
+<w:p><w:pPr><w:jc w:val="center"/></w:pPr><w:r><w:rPr><w:b/><w:sz w:val="22"/></w:rPr><w:t>班级</w:t></w:r></w:p></w:tc>
+<w:tc><w:tcPr><w:tcW w:w="5400" w:type="dxa"/></w:tcPr><w:p/></w:tc>
+</w:tr>
+<w:tr>
+<w:tc><w:tcPr><w:tcW w:w="2600" w:type="dxa"/><w:shd w:val="clear" w:fill="F2F2F2"/></w:tcPr>
+<w:p><w:pPr><w:jc w:val="center"/></w:pPr><w:r><w:rPr><w:b/><w:sz w:val="22"/></w:rPr><w:t>姓名</w:t></w:r></w:p></w:tc>
+<w:tc><w:tcPr><w:tcW w:w="5400" w:type="dxa"/></w:tcPr>
+<w:p><w:pPr><w:jc w:val="center"/></w:pPr><w:r><w:rPr><w:sz w:val="22"/></w:rPr><w:t>邹甜</w:t></w:r></w:p></w:tc>
+</w:tr>
+<w:tr>
+<w:tc><w:tcPr><w:tcW w:w="2600" w:type="dxa"/><w:shd w:val="clear" w:fill="F2F2F2"/></w:tcPr>
+<w:p><w:pPr><w:jc w:val="center"/></w:pPr><w:r><w:rPr><w:b/><w:sz w:val="22"/></w:rPr><w:t>学号</w:t></w:r></w:p></w:tc>
+<w:tc><w:tcPr><w:tcW w:w="5400" w:type="dxa"/></w:tcPr>
+<w:p><w:pPr><w:jc w:val="center"/></w:pPr><w:r><w:rPr><w:sz w:val="22"/></w:rPr><w:t>3242508223</w:t></w:r></w:p></w:tc>
+</w:tr>
+<w:tr>
+<w:tc><w:tcPr><w:tcW w:w="2600" w:type="dxa"/><w:shd w:val="clear" w:fill="F2F2F2"/></w:tcPr>
+<w:p><w:pPr><w:jc w:val="center"/></w:pPr><w:r><w:rPr><w:b/><w:sz w:val="22"/></w:rPr><w:t>指导教师</w:t></w:r></w:p></w:tc>
+<w:tc><w:tcPr><w:tcW w:w="5400" w:type="dxa"/></w:tcPr><w:p/></w:tc>
+</w:tr>
+<w:tr>
+<w:tc><w:tcPr><w:tcW w:w="2600" w:type="dxa"/><w:shd w:val="clear" w:fill="F2F2F2"/></w:tcPr>
+<w:p><w:pPr><w:jc w:val="center"/></w:pPr><w:r><w:rPr><w:b/><w:sz w:val="22"/></w:rPr><w:t>完成日期</w:t></w:r></w:p></w:tc>
+<w:tc><w:tcPr><w:tcW w:w="5400" w:type="dxa"/></w:tcPr>
+<w:p><w:pPr><w:jc w:val="center"/></w:pPr><w:r><w:rPr><w:sz w:val="22"/></w:rPr><w:t>2026 年 11 月 2 日</w:t></w:r></w:p></w:tc>
+</w:tr>
+</w:tbl>
+<w:p><w:r><w:br w:type="page"/></w:r></w:p>
+
+<!-- ===================== 一、实验的目标 ===================== -->
+<w:p><w:pPr><w:pStyle w:val="H1"/></w:pPr><w:r><w:t>一、实验的目标</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Body"/></w:pPr><w:r><w:t>掌握 SpringBoot 自动配置体系：清除项目中残留的各类 ApplicationContext-*.xml，基于 @SpringBootApplication 与 Starter 体系重塑项目启动流程；</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Body"/></w:pPr><w:r><w:t>掌握 application.yml 多环境配置管理：熟练运用 Profiles 机制（dev/test/prod），实现不同运行环境下的数据源、日志等级与业务参数一键隔离与切换；</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Body"/></w:pPr><w:r><w:t>掌握 JUnit 5 现代化单元测试规范：熟练运用 @Test、@BeforeEach、@ParameterizedTest 及断言机制（AssertJ/Assertions），实现对核心业务逻辑边界值与分支的全覆盖；</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Body"/></w:pPr><w:r><w:t>掌握 Mockito 依赖模拟技术：掌握 @Mock、@InjectMocks、when().thenReturn() 与 verify()，在不依赖物理数据库与外部网络的情况下，实现对持久层/第三方服务的完全隔离测试。</w:t></w:r></w:p>
+
+<!-- ===================== 二、实验的内容与要求 ===================== -->
+<w:p><w:pPr><w:pStyle w:val="H1"/></w:pPr><w:r><w:t>二、实验的内容与要求</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="H2"/></w:pPr><w:r><w:t>环节一：清理 XML 配置，全面迁移至 SpringBoot 自动配置</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Body"/></w:pPr><w:r><w:t>剥离 web.xml、applicationContext.xml 等旧式配置，引入 spring-boot-starter-web，构建统一的主启动类 SpringApplication.run()。</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="H2"/></w:pPr><w:r><w:t>环节二：基于 application.yml 构建多环境管理架构</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Body"/></w:pPr><w:r><w:t>编写主配置文件及多环境子配置（application-dev.yml、application-test.yml、application-prod.yml），验证通过命令行参数（--spring.profiles.active=test）无缝切换环境。</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="H2"/></w:pPr><w:r><w:t>环节三：为核心 Service 层设计编写 JUnit 5 测试用例</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Body"/></w:pPr><w:r><w:t>针对业务层核心方法（如订单计算、状态流转、合法性校验等），设计正常流、异常流及边界条件测试，保证测试用例的原子性与独立性。</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="H2"/></w:pPr><w:r><w:t>环节四：运用 Mockito 实现复杂外部依赖解耦</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Body"/></w:pPr><w:r><w:t>在测试 Service 层时，对 Mapper 持久层、外部 HTTP 接口或消息服务打桩（Mock），验证在数据库宕机或断网极端情况下，业务逻辑校验与异常处理仍能 100% 稳定运行。</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="H2"/></w:pPr><w:r><w:t>环节五：测试覆盖率度量与代码重构</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Body"/></w:pPr><w:r><w:t>利用 IDE 覆盖率分析工具或 JaCoCo 插件生成测试报告，针对未覆盖分支反向优化业务代码，消除隐患坏味道。</w:t></w:r></w:p>
+
+<!-- ===================== 三、分析问题和确定解决方案 ===================== -->
+<w:p><w:pPr><w:pStyle w:val="H1"/></w:pPr><w:r><w:t>三、分析问题和确定解决方案</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Body"/></w:pPr><w:r><w:t>本项目原为基于 Servlet/JSP 的传统 SSM 工程，采用 war 包部署。迁移前存在配置样板多、环境切换困难、依赖外部容器、无自动化测试等问题。按分层架构，各关键层的调整原因如下。</w:t></w:r></w:p>
+
+<w:p><w:pPr><w:pStyle w:val="H2"/></w:pPr><w:r><w:t>1. 配置层：删除 web.xml、applicationContext.xml、spring-mvc.xml</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Body"/></w:pPr><w:r><w:t>传统工程通过 web.xml 手工注册 DispatcherServlet、过滤器与监听器；通过 applicationContext.xml 手工声明数据源、SqlSessionFactory、Mapper 扫描器。这些配置存在大量样板代码，且与环境强绑定。Spring Boot 基于“约定优于配置”，由 Starter 依赖触发自动配置类（AutoConfiguration），通过条件注解按需注册 Bean，因此旧式 XML 可以全部移除。</w:t></w:r></w:p>
+
+<w:p><w:pPr><w:pStyle w:val="H2"/></w:pPr><w:r><w:t>2. 视图层：JSP 迁移为 Thymeleaf</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Body"/></w:pPr><w:r><w:t>可执行 jar 模式不支持 JSP：JSP 依赖 war 目录结构，运行时由 Jasper 编译器编译，而 jar 内部没有可写的资源目录。Thymeleaf 模板是纯 HTML 文件，随 jar 一起打包，由 ClassLoader 直接加载，天然适配 jar 部署，因此 login.jsp 等页面改写为 templates 下的 HTML。</w:t></w:r></w:p>
+
+<w:p><w:pPr><w:pStyle w:val="H2"/></w:pPr><w:r><w:t>3. 容器层：外部 Tomcat 替换为内嵌 Tomcat</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Body"/></w:pPr><w:r><w:t>外部 Tomcat 需要独立安装、手工部署 war，开发与生产环境容易不一致。spring-boot-starter-web 已以内嵌方式集成 Tomcat，主启动类的 main 方法即可在同一 JVM 内启动 Web 容器，部署物由“war + 外部容器”简化为“一个可执行 jar + JDK”。</w:t></w:r></w:p>
+
+<w:p><w:pPr><w:pStyle w:val="H2"/></w:pPr><w:r><w:t>4. 数据层：手工装配替换为 DataSource 自动配置与 MyBatis Starter</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Body"/></w:pPr><w:r><w:t>mybatis-spring-boot-starter 自动创建 SqlSessionFactory 并完成 Mapper 接口扫描；数据源由 application 配置驱动，Druid 连接池参数集中管理，消除了 XML 中冗长的 Bean 声明，配置变更只需修改 yml 文件。</w:t></w:r></w:p>
+
+<w:p><w:pPr><w:pStyle w:val="H2"/></w:pPr><w:r><w:t>5. 配置管理层：单文件改造为多环境 Profile 架构</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Body"/></w:pPr><w:r><w:t>开发、测试、生产环境的数据源、端口、日志级别各不相同。Profile 机制将公共配置与环境配置分离，通过命令行参数即可切换，避免手工改配置引发的错误，也便于持续集成流水线按环境发布。</w:t></w:r></w:p>
+
+<w:p><w:pPr><w:pStyle w:val="H2"/></w:pPr><w:r><w:t>6. 测试层：引入 JUnit 5 与 Mockito</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Body"/></w:pPr><w:r><w:t>业务逻辑需要可重复、可自动化的验证手段。Mockito 可以对持久层打桩，使测试不依赖物理数据库与外部网络，数据库宕机、断网等极端场景也能稳定复现和断言。</w:t></w:r></w:p>
+
+<!-- ===================== 四、详细设计 ===================== -->
+<w:p><w:pPr><w:pStyle w:val="H1"/></w:pPr><w:r><w:t>四、详细设计</w:t></w:r></w:p>
+
+<w:p><w:pPr><w:pStyle w:val="H2"/></w:pPr><w:r><w:t>1. 目标项目结构</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Code"/></w:pPr><w:r><w:t>task-servlet-demo/</w:t><w:br/>
+<w:t>├─ src/main/java/cn/edu/mju/band/</w:t><w:br/>
+<w:t>│   ├─ TaskApplication.java        # 主启动类</w:t><w:br/>
+<w:t>│   ├─ controller/                 # Index/Login/Task 控制器</w:t><w:br/>
+<w:t>│   ├─ filter/AuthFilter.java      # 登录鉴权过滤器</w:t><w:br/>
+<w:t>│   ├─ buss/ + buss/impl/          # 业务接口与实现</w:t><w:br/>
+<w:t>│   ├─ dal/                        # TaskDao、UserDao 接口</w:t><w:br/>
+<w:t>│   └─ entity/                     # Task、User 实体</w:t><w:br/>
+<w:t>└─ src/main/resources/</w:t><w:br/>
+<w:t>    ├─ application.yml             # 公共配置，默认 dev</w:t><w:br/>
+<w:t>    ├─ application-dev/test/prod.yml</w:t><w:br/>
+<w:t>    ├─ mapper/*.xml                # MyBatis SQL 映射</w:t><w:br/>
+<w:t>    ├─ templates/*.html            # Thymeleaf 页面</w:t><w:br/>
+<w:t>    └─ static/css/style.css</w:t></w:r></w:p>
+
+<w:p><w:pPr><w:pStyle w:val="H2"/></w:pPr><w:r><w:t>2. pom.xml 设计</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Bullet"/></w:pPr><w:r><w:t>• 继承 spring-boot-starter-parent 3.4.13，打包方式由 war 改为 jar；</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Bullet"/></w:pPr><w:r><w:t>• 引入 spring-boot-starter-web（含内嵌 Tomcat）、thymeleaf、jdbc；</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Bullet"/></w:pPr><w:r><w:t>• 引入 mybatis-spring-boot-starter 3.0.4、mysql-connector-j、druid-spring-boot-3-starter 1.2.23、hutool；</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Bullet"/></w:pPr><w:r><w:t>• 配置 spring-boot-maven-plugin（repackage 生成可执行 jar）、maven-dependency-plugin 与 JaCoCo 相关插件。</w:t></w:r></w:p>
+
+<w:p><w:pPr><w:pStyle w:val="H2"/></w:pPr><w:r><w:t>3. 主启动类设计</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Body"/></w:pPr><w:r><w:t>使用 @SpringBootApplication 开启组件扫描与自动配置，使用 @MapperScan 统一扫描 DAO 接口，main 方法调用 SpringApplication.run 完成容器启动。</w:t></w:r></w:p>
+
+<w:p><w:pPr><w:pStyle w:val="H2"/></w:pPr><w:r><w:t>4. 多环境配置设计</w:t></w:r></w:p>
+<w:tbl>
+<w:tblPr><w:tblW w:w="9000" w:type="dxa"/>
+<w:tblBorders>
+<w:top w:val="single" w:sz="4" w:space="0" w:color="000000"/>
+<w:left w:val="single" w:sz="4" w:space="0" w:color="000000"/>
+<w:bottom w:val="single" w:sz="4" w:space="0" w:color="000000"/>
+<w:right w:val="single" w:sz="4" w:space="0" w:color="000000"/>
+<w:insideH w:val="single" w:sz="4" w:space="0" w:color="000000"/>
+<w:insideV w:val="single" w:sz="4" w:space="0" w:color="000000"/>
+</w:tblBorders></w:tblPr>
+<w:tblGrid><w:gridCol w:w="1400"/><w:gridCol w:w="1200"/><w:gridCol w:w="3600"/><w:gridCol w:w="2800"/></w:tblGrid>
+<w:tr>
+<w:tc><w:tcPr><w:tcW w:w="1400" w:type="dxa"/><w:shd w:val="clear" w:fill="D9D9D9"/></w:tcPr><w:p><w:r><w:rPr><w:b/><w:sz w:val="20"/></w:rPr><w:t>环境</w:t></w:r></w:p></w:tc>
+<w:tc><w:tcPr><w:tcW w:w="1200" w:type="dxa"/><w:shd w:val="clear" w:fill="D9D9D9"/></w:tcPr><w:p><w:r><w:rPr><w:b/><w:sz w:val="20"/></w:rPr><w:t>端口</w:t></w:r></w:p></w:tc>
+<w:tc><w:tcPr><w:tcW w:w="3600" w:type="dxa"/><w:shd w:val="clear" w:fill="D9D9D9"/></w:tcPr><w:p><w:r><w:rPr><w:b/><w:sz w:val="20"/></w:rPr><w:t>数据源</w:t></w:r></w:p></w:tc>
+<w:tc><w:tcPr><w:tcW w:w="2800" w:type="dxa"/><w:shd w:val="clear" w:fill="D9D9D9"/></w:tcPr><w:p><w:r><w:rPr><w:b/><w:sz w:val="20"/></w:rPr><w:t>特点</w:t></w:r></w:p></w:tc>
+</w:tr>
+<w:tr>
+<w:tc><w:tcPr><w:tcW w:w="1400" w:type="dxa"/></w:tcPr><w:p><w:r><w:rPr><w:sz w:val="20"/></w:rPr><w:t>dev</w:t></w:r></w:p></w:tc>
+<w:tc><w:tcPr><w:tcW w:w="1200" w:type="dxa"/></w:tcPr><w:p><w:r><w:rPr><w:sz w:val="20"/></w:rPr><w:t>8080</w:t></w:r></w:p></w:tc>
+<w:tc><w:tcPr><w:tcW w:w="3600" w:type="dxa"/></w:tcPr><w:p><w:r><w:rPr><w:sz w:val="20"/></w:rPr><w:t>task_db（本地 MySQL）</w:t></w:r></w:p></w:tc>
+<w:tc><w:tcPr><w:tcW w:w="2800" w:type="dxa"/></w:tcPr><w:p><w:r><w:rPr><w:sz w:val="20"/></w:rPr><w:t>模板缓存关闭，debug 日志</w:t></w:r></w:p></w:tc>
+</w:tr>
+<w:tr>
+<w:tc><w:tcPr><w:tcW w:w="1400" w:type="dxa"/></w:tcPr><w:p><w:r><w:rPr><w:sz w:val="20"/></w:rPr><w:t>test</w:t></w:r></w:p></w:tc>
+<w:tc><w:tcPr><w:tcW w:w="1200" w:type="dxa"/></w:tcPr><w:p><w:r><w:rPr><w:sz w:val="20"/></w:rPr><w:t>8081</w:t></w:r></w:p></w:tc>
+<w:tc><w:tcPr><w:tcW w:w="3600" w:type="dxa"/></w:tcPr><w:p><w:r><w:rPr><w:sz w:val="20"/></w:rPr><w:t>task_db_test</w:t></w:r></w:p></w:tc>
+<w:tc><w:tcPr><w:tcW w:w="2800" w:type="dxa"/></w:tcPr><w:p><w:r><w:rPr><w:sz w:val="20"/></w:rPr><w:t>支持环境变量覆盖账号密码</w:t></w:r></w:p></w:tc>
+</w:tr>
+<w:tr>
+<w:tc><w:tcPr><w:tcW w:w="1400" w:type="dxa"/></w:tcPr><w:p><w:r><w:rPr><w:sz w:val="20"/></w:rPr><w:t>prod</w:t></w:r></w:p></w:tc>
+<w:tc><w:tcPr><w:tcW w:w="1200" w:type="dxa"/></w:tcPr><w:p><w:r><w:rPr><w:sz w:val="20"/></w:rPr><w:t>8080</w:t></w:r></w:p></w:tc>
+<w:tc><w:tcPr><w:tcW w:w="3600" w:type="dxa"/></w:tcPr><w:p><w:r><w:rPr><w:sz w:val="20"/></w:rPr><w:t>环境变量 DB_URL 等注入</w:t></w:r></w:p></w:tc>
+<w:tc><w:tcPr><w:tcW w:w="2800" w:type="dxa"/></w:tcPr><w:p><w:r><w:rPr><w:sz w:val="20"/></w:rPr><w:t>模板缓存开启，warn 日志</w:t></w:r></w:p></w:tc>
+</w:tr>
+</w:tbl>
+<w:p><w:pPr><w:pStyle w:val="Body"/></w:pPr><w:r><w:t>主配置文件声明 spring.profiles.active=dev 作为默认环境；命令行追加 --spring.profiles.active=test 即可覆盖，启动日志会打印当前激活的 Profile。</w:t></w:r></w:p>
+
+<w:p><w:pPr><w:pStyle w:val="H2"/></w:pPr><w:r><w:t>5. 分层组件设计</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Bullet"/></w:pPr><w:r><w:t>• Controller 层：@Controller 处理路由与表单绑定，通过构造器注入业务层；</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Bullet"/></w:pPr><w:r><w:t>• Service 层：接口 + 实现类，@Service 注册 Bean，@Transactional 声明事务，add 方法包含标题合法性校验与默认值设置；</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Bullet"/></w:pPr><w:r><w:t>• DAO 层：MyBatis 接口与 mapper XML 的 namespace 一一对应；</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Bullet"/></w:pPr><w:r><w:t>• 过滤器：@Component 注册 AuthFilter，白名单前缀匹配，未登录请求重定向到 /login。</w:t></w:r></w:p>
+
+<w:p><w:pPr><w:pStyle w:val="H2"/></w:pPr><w:r><w:t>6. 测试设计</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Body"/></w:pPr><w:r><w:t>共设计 4 个测试类、34 个用例，覆盖正常流、异常流与边界条件；每个用例通过 @BeforeEach 重建测试数据，Mockito 为每个方法提供全新 Mock，保证原子性与独立性。</w:t></w:r></w:p>
+
+<!-- ===================== 五、实现 ===================== -->
+<w:p><w:pPr><w:pStyle w:val="H1"/></w:pPr><w:r><w:t>五、实现</w:t></w:r></w:p>
+
+<w:p><w:pPr><w:pStyle w:val="H2"/></w:pPr><w:r><w:t>1. 主启动类实现</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Code"/></w:pPr><w:r><w:t>@SpringBootApplication</w:t><w:br/>
+<w:t>@MapperScan("cn.edu.mju.band.dal")</w:t><w:br/>
+<w:t>public class TaskApplication {</w:t><w:br/>
+<w:t>    public static void main(String[] args) {</w:t><w:br/>
+<w:t>        SpringApplication.run(TaskApplication.class, args);</w:t><w:br/>
+<w:t>    }</w:t><w:br/>
+<w:t>}</w:t></w:r></w:p>
+
+<w:p><w:pPr><w:pStyle w:val="H2"/></w:pPr><w:r><w:t>2. 多环境与 MyBatis 自动配置（application.yml 节选）</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Code"/></w:pPr><w:r><w:t>spring:</w:t><w:br/>
+<w:t>  profiles:</w:t><w:br/>
+<w:t>    active: dev</w:t><w:br/>
+<w:t>mybatis:</w:t><w:br/>
+<w:t>  mapper-locations: classpath*:mapper/*.xml</w:t><w:br/>
+<w:t>  type-aliases-package: cn.edu.mju.band.entity</w:t><w:br/>
+<w:t>  configuration:</w:t><w:br/>
+<w:t>    map-underscore-to-camel-case: true</w:t><w:br/>
+<w:t>    call-setters-on-nulls: true</w:t></w:r></w:p>
+
+<w:p><w:pPr><w:pStyle w:val="H2"/></w:pPr><w:r><w:t>3. 业务层合法性校验与默认值实现</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Code"/></w:pPr><w:r><w:t>@Override</w:t><w:br/>
+<w:t>@Transactional(rollbackFor = Exception.class)</w:t><w:br/>
+<w:t>public void add(Task task) {</w:t><w:br/>
+<w:t>    if (task == null || task.getTitle() == null</w:t><w:br/>
+<w:t>            || task.getTitle().isBlank()) {</w:t><w:br/>
+<w:t>        throw new IllegalArgumentException("任务标题不能为空");</w:t><w:br/>
+<w:t>    }</w:t><w:br/>
+<w:t>    if (task.getStatus() == null)   task.setStatus(0);</w:t><w:br/>
+<w:t>    if (task.getPriority() == null) task.setPriority(2);</w:t><w:br/>
+<w:t>    taskDao.insert(task);</w:t><w:br/>
+<w:t>}</w:t></w:r></w:p>
+
+<w:p><w:pPr><w:pStyle w:val="H2"/></w:pPr><w:r><w:t>4. Mockito 打桩实现（数据库宕机场景节选）</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Code"/></w:pPr><w:r><w:t>@Test</w:t><w:br/>
+<w:t>void add_whenDatabaseDown_shouldThrowAndStillApplyDefaults() {</w:t><w:br/>
+<w:t>    doThrow(new DataAccessResourceFailureException(</w:t><w:br/>
+<w:t>            "Communications link failure"))</w:t><w:br/>
+<w:t>            .when(taskDao).insert(any(Task.class));</w:t><w:br/>
+<w:t>    assertThrows(DataAccessResourceFailureException.class,</w:t><w:br/>
+<w:t>            () -&gt; taskBuss.add(task));</w:t><w:br/>
+<w:t>    assertEquals(0, task.getStatus());</w:t><w:br/>
+<w:t>    verify(taskDao).insert(any(Task.class));</w:t><w:br/>
+<w:t>}</w:t></w:r></w:p>
+
+<w:p><w:pPr><w:pStyle w:val="H2"/></w:pPr><w:r><w:t>5. 环境切换命令</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Code"/></w:pPr><w:r><w:t>java -jar target/task-servlet-demo.jar --spring.profiles.active=test</w:t></w:r></w:p>
+
+<w:p><w:pPr><w:pStyle w:val="H2"/></w:pPr><w:r><w:t>6. 运行结果</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Bullet"/></w:pPr><w:r><w:t>• mvn clean verify 构建成功，输出 BUILD SUCCESS，生成 target/task-servlet-demo.jar；</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Bullet"/></w:pPr><w:r><w:t>• 启动日志显示 The following 1 profile is active: "dev"，Tomcat started on port 8080 (http) with context path '/'；</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Bullet"/></w:pPr><w:r><w:t>• 浏览器访问 http://localhost:8080/login 显示登录页面，使用 admin/123456 可正常登录并进入任务列表。</w:t></w:r></w:p>
+
+<!-- ===================== 六、测试 ===================== -->
+<w:p><w:pPr><w:pStyle w:val="H1"/></w:pPr><w:r><w:t>六、测试</w:t></w:r></w:p>
+
+<w:p><w:pPr><w:pStyle w:val="H2"/></w:pPr><w:r><w:t>（1）测试结果</w:t></w:r></w:p>
+<w:tbl>
+<w:tblPr><w:tblW w:w="9000" w:type="dxa"/>
+<w:tblBorders>
+<w:top w:val="single" w:sz="4" w:space="0" w:color="000000"/>
+<w:left w:val="single" w:sz="4" w:space="0" w:color="000000"/>
+<w:bottom w:val="single" w:sz="4" w:space="0" w:color="000000"/>
+<w:right w:val="single" w:sz="4" w:space="0" w:color="000000"/>
+<w:insideH w:val="single" w:sz="4" w:space="0" w:color="000000"/>
+<w:insideV w:val="single" w:sz="4" w:space="0" w:color="000000"/>
+</w:tblBorders></w:tblPr>
+<w:tblGrid><w:gridCol w:w="2600"/><w:gridCol w:w="1000"/><w:gridCol w:w="3800"/><w:gridCol w:w="1600"/></w:tblGrid>
+<w:tr>
+<w:tc><w:tcPr><w:tcW w:w="2600" w:type="dxa"/><w:shd w:val="clear" w:fill="D9D9D9"/></w:tcPr><w:p><w:r><w:rPr><w:b/><w:sz w:val="20"/></w:rPr><w:t>测试类</w:t></w:r></w:p></w:tc>
+<w:tc><w:tcPr><w:tcW w:w="1000" w:type="dxa"/><w:shd w:val="clear" w:fill="D9D9D9"/></w:tcPr><w:p><w:r><w:rPr><w:b/><w:sz w:val="20"/></w:rPr><w:t>用例数</w:t></w:r></w:p></w:tc>
+<w:tc><w:tcPr><w:tcW w:w="3800" w:type="dxa"/><w:shd w:val="clear" w:fill="D9D9D9"/></w:tcPr><w:p><w:r><w:rPr><w:b/><w:sz w:val="20"/></w:rPr><w:t>覆盖内容</w:t></w:r></w:p></w:tc>
+<w:tc><w:tcPr><w:tcW w:w="1600" w:type="dxa"/><w:shd w:val="clear" w:fill="D9D9D9"/></w:tcPr><w:p><w:r><w:rPr><w:b/><w:sz w:val="20"/></w:rPr><w:t>结果</w:t></w:r></w:p></w:tc>
+</w:tr>
+<w:tr>
+<w:tc><w:tcPr><w:tcW w:w="2600" w:type="dxa"/></w:tcPr><w:p><w:r><w:rPr><w:sz w:val="20"/></w:rPr><w:t>TaskBussImplTest</w:t></w:r></w:p></w:tc>
+<w:tc><w:tcPr><w:tcW w:w="1000" w:type="dxa"/></w:tcPr><w:p><w:r><w:rPr><w:sz w:val="20"/></w:rPr><w:t>12</w:t></w:r></w:p></w:tc>
+<w:tc><w:tcPr><w:tcW w:w="3800" w:type="dxa"/></w:tcPr><w:p><w:r><w:rPr><w:sz w:val="20"/></w:rPr><w:t>增删改查、默认值、空标题校验、委托与异常</w:t></w:r></w:p></w:tc>
+<w:tc><w:tcPr><w:tcW w:w="1600" w:type="dxa"/></w:tcPr><w:p><w:r><w:rPr><w:sz w:val="20"/></w:rPr><w:t>全部通过</w:t></w:r></w:p></w:tc>
+</w:tr>
+<w:tr>
+<w:tc><w:tcPr><w:tcW w:w="2600" w:type="dxa"/></w:tcPr><w:p><w:r><w:rPr><w:sz w:val="20"/></w:rPr><w:t>UserBussImplTest</w:t></w:r></w:p></w:tc>
+<w:tc><w:tcPr><w:tcW w:w="1000" w:type="dxa"/></w:tcPr><w:p><w:r><w:rPr><w:sz w:val="20"/></w:rPr><w:t>8</w:t></w:r></w:p></w:tc>
+<w:tc><w:tcPr><w:tcW w:w="3800" w:type="dxa"/></w:tcPr><w:p><w:r><w:rPr><w:sz w:val="20"/></w:rPr><w:t>登录成功/失败、空用户名、密码错误、trim 边界</w:t></w:r></w:p></w:tc>
+<w:tc><w:tcPr><w:tcW w:w="1600" w:type="dxa"/></w:tcPr><w:p><w:r><w:rPr><w:sz w:val="20"/></w:rPr><w:t>全部通过</w:t></w:r></w:p></w:tc>
+</w:tr>
+<w:tr>
+<w:tc><w:tcPr><w:tcW w:w="2600" w:type="dxa"/></w:tcPr><w:p><w:r><w:rPr><w:sz w:val="20"/></w:rPr><w:t>TaskTest</w:t></w:r></w:p></w:tc>
+<w:tc><w:tcPr><w:tcW w:w="1000" w:type="dxa"/></w:tcPr><w:p><w:r><w:rPr><w:sz w:val="20"/></w:rPr><w:t>3</w:t></w:r></w:p></w:tc>
+<w:tc><w:tcPr><w:tcW w:w="3800" w:type="dxa"/></w:tcPr><w:p><w:r><w:rPr><w:sz w:val="20"/></w:rPr><w:t>isFinished 三种状态分支</w:t></w:r></w:p></w:tc>
+<w:tc><w:tcPr><w:tcW w:w="1600" w:type="dxa"/></w:tcPr><w:p><w:r><w:rPr><w:sz w:val="20"/></w:rPr><w:t>全部通过</w:t></w:r></w:p></w:tc>
+</w:tr>
+<w:tr>
+<w:tc><w:tcPr><w:tcW w:w="2600" w:type="dxa"/></w:tcPr><w:p><w:r><w:rPr><w:sz w:val="20"/></w:rPr><w:t>ServiceResilienceTest</w:t></w:r></w:p></w:tc>
+<w:tc><w:tcPr><w:tcW w:w="1000" w:type="dxa"/></w:tcPr><w:p><w:r><w:rPr><w:sz w:val="20"/></w:rPr><w:t>11</w:t></w:r></w:p></w:tc>
+<w:tc><w:tcPr><w:tcW w:w="3800" w:type="dxa"/></w:tcPr><w:p><w:r><w:rPr><w:sz w:val="20"/></w:rPr><w:t>数据库宕机、断网、连续打桩、校验先行</w:t></w:r></w:p></w:tc>
+<w:tc><w:tcPr><w:tcW w:w="1600" w:type="dxa"/></w:tcPr><w:p><w:r><w:rPr><w:sz w:val="20"/></w:rPr><w:t>全部通过</w:t></w:r></w:p></w:tc>
+</w:tr>
+<w:tr>
+<w:tc><w:tcPr><w:tcW w:w="2600" w:type="dxa"/></w:tcPr><w:p><w:r><w:rPr><w:b/><w:sz w:val="20"/></w:rPr><w:t>合计</w:t></w:r></w:p></w:tc>
+<w:tc><w:tcPr><w:tcW w:w="1000" w:type="dxa"/></w:tcPr><w:p><w:r><w:rPr><w:b/><w:sz w:val="20"/></w:rPr><w:t>34</w:t></w:r></w:p></w:tc>
+<w:tc><w:tcPr><w:tcW w:w="3800" w:type="dxa"/></w:tcPr><w:p><w:r><w:rPr><w:b/><w:sz w:val="20"/></w:rPr><w:t>Failures: 0, Errors: 0, Skipped: 0</w:t></w:r></w:p></w:tc>
+<w:tc><w:tcPr><w:tcW w:w="1600" w:type="dxa"/></w:tcPr><w:p><w:r><w:rPr><w:b/><w:sz w:val="20"/></w:rPr><w:t>BUILD SUCCESS</w:t></w:r></w:p></w:tc>
+</w:tr>
+</w:tbl>
+<w:p><w:pPr><w:pStyle w:val="Body"/></w:pPr><w:r><w:t>JaCoCo 覆盖率报告（target/site/jacoco/index.html）显示：核心业务层 buss.impl 行覆盖率 100%、分支覆盖率 90%；entity 包指令覆盖率 81%；全项目指令覆盖率 43%、分支覆盖率 60%，未覆盖部分主要是本次未编写测试的 controller 与 filter 包。</w:t></w:r></w:p>
+
+<w:p><w:pPr><w:pStyle w:val="H2"/></w:pPr><w:r><w:t>（2）调试过程中遇到的问题及解决方法</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Bullet"/></w:pPr><w:r><w:t>• 问题一：IDEA 仍使用 Smart Tomcat 配置，docBase 指向已删除的 webapp，浏览器出现 Tomcat 原生 404。解决：改为运行 TaskApplication 的 main 方法，由内嵌 Tomcat 提供服务。</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Bullet"/></w:pPr><w:r><w:t>• 问题二：MySQL 服务显示 Running，但旧客户端报 ERROR 2003（10061）。解决：改用 MySQL 8.0 官方客户端并显式指定协议、主机与端口。</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Bullet"/></w:pPr><w:r><w:t>• 问题三：报 ERROR 2026 SSL connection error。解决：本地连接添加 --ssl-mode=DISABLED 禁用 SSL。</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Bullet"/></w:pPr><w:r><w:t>• 问题四：报 ERROR 2061 requires secure connection。解决：添加 --get-server-public-key 获取服务端公钥完成密码交换。</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Bullet"/></w:pPr><w:r><w:t>• 问题五：应用报 1045 Access denied。解决：将数据库密码与配置统一为 Root@123456。</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Bullet"/></w:pPr><w:r><w:t>• 问题六：插入中文报 ERROR 1406 Data too long。解决：执行 SET NAMES utf8mb4 修正连接字符集，并在测试脚本中预置该语句。</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Bullet"/></w:pPr><w:r><w:t>• 问题七：JDK 26 下 Mockito 自挂载代理产生警告。解决：通过 maven-dependency-plugin 取得 Mockito 路径，在 Surefire 中显式配置 -javaagent。</w:t></w:r></w:p>
+
+<!-- ===================== 七、结果分析 ===================== -->
+<w:p><w:pPr><w:pStyle w:val="H1"/></w:pPr><w:r><w:t>七、结果分析</w:t></w:r></w:p>
+
+<w:p><w:pPr><w:pStyle w:val="H2"/></w:pPr><w:r><w:t>（1）调整后的优势</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Bullet"/></w:pPr><w:r><w:t>• 配置精简：Spring 相关 XML 全部移除，自动配置按需生效，新增功能只需引入对应 Starter；</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Bullet"/></w:pPr><w:r><w:t>• 部署简单：一个可执行 jar 加 JDK 即可运行，不再依赖外部 Tomcat 安装与 war 部署；</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Bullet"/></w:pPr><w:r><w:t>• 环境隔离：dev/test/prod 三套配置结构清晰，命令行参数一键切换，适合持续集成；</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Bullet"/></w:pPr><w:r><w:t>• 测试可靠：纯 Mockito 单元测试离线可运行，数据库宕机、断网场景可稳定复现，结果可重复；</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Bullet"/></w:pPr><w:r><w:t>• 改进可度量：JaCoCo 报告精确到行，核心业务层行覆盖率达到 100%，重构有数据支撑。</w:t></w:r></w:p>
+
+<w:p><w:pPr><w:pStyle w:val="H2"/></w:pPr><w:r><w:t>（2）经验和体会</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Bullet"/></w:pPr><w:r><w:t>• “约定优于配置”不是没有配置，而是把通用配置沉淀为自动配置，开发者只保留差异化部分；</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Bullet"/></w:pPr><w:r><w:t>• 排查问题要先定位日志最底部的 Caused by，按根因选择通道，而不是盲目重试；</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Bullet"/></w:pPr><w:r><w:t>• 单元测试是重构的安全网：先补校验逻辑、再补测试、最后看覆盖率，改动才敢落地；</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Bullet"/></w:pPr><w:r><w:t>• 安全意识同样重要：生产环境密码必须通过环境变量注入，明文密码存储应升级为加盐哈希；</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Bullet"/></w:pPr><w:r><w:t>• 版本升级要关注兼容性细节，如 Boot 3 的 jakarta 包名、Druid 的 Boot 3 专用坐标、JDK 新特性对代理加载的限制。</w:t></w:r></w:p>
+
+<!-- ===================== 八、参考文献 ===================== -->
+<w:p><w:pPr><w:pStyle w:val="H1"/></w:pPr><w:r><w:t>八、参考文献</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Bullet"/></w:pPr><w:r><w:t>[1] Spring Boot Reference Documentation. https://docs.spring.io/spring-boot/</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Bullet"/></w:pPr><w:r><w:t>[2] MyBatis Spring Boot Starter. https://mybatis.org/spring-boot-starter/mybatis-spring-boot-autoconfigure/</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Bullet"/></w:pPr><w:r><w:t>[3] JUnit 5 User Guide. https://junit.org/junit5/docs/current/user-guide/</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Bullet"/></w:pPr><w:r><w:t>[4] Mockito Framework Documentation. https://site.mockito.org/</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Bullet"/></w:pPr><w:r><w:t>[5] JaCoCo Java Code Coverage Library. https://www.jacoco.org/jacoco/trunk/doc/</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Bullet"/></w:pPr><w:r><w:t>[6] Thymeleaf + Spring Documentation. https://www.thymeleaf.org/documentation.html</w:t></w:r></w:p>
+
+<!-- ===================== 九、注意事项 ===================== -->
+<w:p><w:pPr><w:pStyle w:val="H1"/></w:pPr><w:r><w:t>九、注意事项</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Bullet"/></w:pPr><w:r><w:t>• Spring Boot 3 的 Servlet API 包名为 jakarta.*，不再使用 javax.*，导入过滤器时注意区分；</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Bullet"/></w:pPr><w:r><w:t>• Boot 3 集成 Druid 必须使用 druid-spring-boot-3-starter 坐标，旧坐标不会自动装配；</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Bullet"/></w:pPr><w:r><w:t>• 可执行 jar 模式不支持 JSP，视图必须使用 Thymeleaf 等模板引擎并放在 templates 目录；</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Bullet"/></w:pPr><w:r><w:t>• 修改配置后需重新执行 Maven 构建，确认 target/classes 与 jar 内的资源同步更新；</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Bullet"/></w:pPr><w:r><w:t>• 生产环境的数据源账号密码必须通过环境变量注入，禁止硬编码在配置文件中；</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Bullet"/></w:pPr><w:r><w:t>• MockitoExtension 默认严格模式，未被使用的打桩会报错，不应随意使用 lenient 绕过；</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Bullet"/></w:pPr><w:r><w:t>• JDK 26 等新版本下需显式挂载 Mockito 代理，避免动态代理加载在未来版本被禁用；</w:t></w:r></w:p>
+<w:p><w:pPr><w:pStyle w:val="Bullet"/></w:pPr><w:r><w:t>• 含中文的 SQL 脚本执行前先确认连接字符集为 utf8mb4，避免出现数据过长或乱码问题。</w:t></w:r></w:p>
+
+<w:sectPr>
+<w:pgSz w:w="11906" w:h="16838"/>
+<w:pgMar w:top="1440" w:right="1440" w:bottom="1440" w:left="1440" w:header="851" w:footer="992" w:gutter="0"/>
+<w:cols w:space="425"/>
+<w:docGrid w:type="lines" w:line-pitch="312"/>
+</w:sectPr>
+</w:body>
+</w:wordDocument>

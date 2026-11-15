@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>任务列表</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container">
+    <div class="toolbar">
+        <h2>任务列表</h2>
+        <span class="muted" th:text="${session.loginUser != null ? '当前用户：' + session.loginUser : '当前用户：-'}">当前用户：-</span>
+        <span class="spacer"></span>
+        <a class="btn primary" th:href="@{/task/add}">新增任务</a>
+        <a class="btn" th:href="@{/logout}">退出</a>
+    </div>
+
+    <p class="alert ok" th:if="${msg}" th:text="${msg}">操作成功</p>
+
+    <!-- 环节三：条件查询表单，GET 提交后 keyword / status 会随分页链接一起带过去 -->
+    <form class="filter" method="get" th:action="@{/task}">
+        <input type="text" name="keyword" placeholder="按标题或内容搜索"
+               th:value="${keyword}">
+        <select name="status">
+            <option value="" th:selected="${status == null}">全部状态</option>
+            <option value="0" th:selected="${status != null and status == 0}">未完成</option>
+            <option value="1" th:selected="${status != null and status == 1}">已完成</option>
+        </select>
+        <select name="size">
+            <option value="10" th:selected="${page == null or page.size == 10}">每页 10 条</option>
+            <option value="20" th:selected="${page != null and page.size == 20}">每页 20 条</option>
+            <option value="50" th:selected="${page != null and page.size == 50}">每页 50 条</option>
+        </select>
+        <button type="submit" class="btn primary">查询</button>
+        <a class="btn" th:href="@{/task}">重置</a>
+    </form>
+
+    <p class="empty" th:if="${#lists.isEmpty(tasks)}">暂无任务，点击「新增任务」开始。</p>
+
+    <table th:unless="${#lists.isEmpty(tasks)}">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>标题</th>
+            <th>内容</th>
+            <th>优先级</th>
+            <th>截止日期</th>
+            <th>状态</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="t : ${tasks}">
+            <td th:text="${t.id}">1</td>
+            <td th:text="${t.title}">标题</td>
+            <td th:text="${t.content}">内容</td>
+            <td th:text="${t.priority == 3 ? '高' : (t.priority == 1 ? '低' : '中')}">中</td>
+            <td th:text="${t.taskDate != null ? #temporals.format(t.taskDate, 'yyyy-MM-dd') : '-'}">-</td>
+            <td>
+                <span class="tag" th:classappend="${t.finished ? 'done' : 'todo'}"
+                      th:text="${t.finished ? '已完成' : '未完成'}">未完成</span>
+            </td>
+            <td class="ops">
+                <a class="btn sm" th:href="@{/task/update/{id}(id=${t.id})}">编辑</a>
+                <form th:action="@{/task/delete}" method="post" class="inline"
+                      onsubmit="return confirm('确定删除该任务？');">
+                    <input type="hidden" name="id" th:value="${t.id}">
+                    <button type="submit" class="btn sm danger">删除</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!-- 环节三：分页栏。page 是 MyBatis-Plus 的 IPage，记录数由 SQL 的 COUNT 得到 -->
+    <div class="pager" th:if="${page != null and page.pages > 1}">
+        <a class="btn sm" th:if="${page.current > 1}"
+           th:href="@{/task(current=${page.current - 1}, size=${page.size}, keyword=${keyword}, status=${status})}">上一页</a>
+        <span class="muted"
+              th:text="|第 ${page.current} / ${page.pages} 页，共 ${page.total} 条|">第 1 / 1 页，共 0 条</span>
+        <a class="btn sm" th:if="${page.current < page.pages}"
+           th:href="@{/task(current=${page.current + 1}, size=${page.size}, keyword=${keyword}, status=${status})}">下一页</a>
+    </div>
+    <p class="muted" th:if="${page != null and page.total == 0}">共 0 条记录。</p>
+</div>
+</body>
+</html>

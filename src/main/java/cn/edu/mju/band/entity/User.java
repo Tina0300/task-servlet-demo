@@ -1,60 +1,35 @@
 package cn.edu.mju.band.entity;
 
-public class User {
-    private Integer id;
-    private String loginName;
-    private String loginPwd;
-    private String nickname;
-    private Byte status;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 
-    public User() {
-    }
+import java.io.Serializable;
 
-    public User(Integer id, String loginName, String loginPwd, String nickname, Byte status) {
-        this.id = id;
-        this.loginName = loginName;
-        this.loginPwd = loginPwd;
-        this.nickname = nickname;
-        this.status = status;
-    }
+/**
+ * 环节三：表名 sys_user、字段 real_name 与实体的映射由注解声明，XML 已删除。
+ */
+@TableName("sys_user")
+public class User implements Serializable {
+    private static final long serialVersionUID = 1L;
 
-    public Integer getId() {
-        return id;
-    }
+    @TableId(value = "id", type = IdType.AUTO)
+    private Long id;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    private String username;
 
-    public String getLoginName() {
-        return loginName;
-    }
+    private String password;
 
-    public void setLoginName(String loginName) {
-        this.loginName = loginName;
-    }
+    @TableField("real_name")
+    private String realName;
 
-    public String getLoginPwd() {
-        return loginPwd;
-    }
-
-    public void setLoginPwd(String loginPwd) {
-        this.loginPwd = loginPwd;
-    }
-
-    public String getNickname() {
-        return nickname;
-    }
-
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
-
-    public Byte getStatus() {
-        return status;
-    }
-
-    public void setStatus(Byte status) {
-        this.status = status;
-    }
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+    public String getUsername() { return username; }
+    public void setUsername(String username) { this.username = username; }
+    public String getPassword() { return password; }
+    public void setPassword(String password) { this.password = password; }
+    public String getRealName() { return realName; }
+    public void setRealName(String realName) { this.realName = realName; }
 }

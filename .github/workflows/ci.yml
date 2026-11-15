@@ -1,0 +1,73 @@
+# 环节一：GitHub Actions 持续集成（CI）流水线
+# 目标：提交即验证 —— 每次 push / PR 自动执行 单元测试门禁 → 打包 → 归档 war 产物
+# 说明：4 个测试类均为纯 Mockito 单元测试，不启动 Spring 容器、不连 MySQL，CI 无需数据库服务。
+
+name: CI
+
+on:
+  push:
+    branches: [ master, main ]
+  pull_request:
+    branches: [ master, main ]
+  workflow_dispatch:        # 支持 Actions 页面手动触发，便于答辩演示
+
+# 最小权限：只读仓库内容
+permissions:
+  contents: read
+
+# 同一分支连续推送时，取消上一次仍在跑的构建
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: build (JDK 17)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      # 1. 拉取仓库代码
+      - name: 1. 检出代码
+        uses: actions/checkout@v4
+
+      # 2. 安装 JDK 17（Temurin），并缓存 Maven 依赖
+      - name: 2. 配置 JDK 17 + Maven 缓存
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: maven
+
+      # 3. 打印环境信息，作为验收证据
+      - name: 3. 环境信息
+        run: |
+          java -version
+          mvn -v
+
+      # 4. 质量门禁：测试不绿，流水线立即失败，PR 无法合并
+      - name: 4. 质量门禁（mvn clean test）
+        run: mvn -B -ntp clean test
+
+      # 5. 打包（第 4 步已跑过测试，这里跳过避免重复执行）
+      - name: 5. 打包（mvn package）
+        run: mvn -B -ntp package -DskipTests
+
+      # 6. 归档 war 构建产物（Artifact）
+      - name: 6. 归档 war 产物
+        uses: actions/upload-artifact@v4
+        with:
+          name: task-servlet-demo-war
+          path: target/*.war
+          if-no-files-found: error
+          retention-days: 30
+
+      # 7. 归档单元测试报告（无论成败都上传，便于排查）
+      - name: 7. 归档测试报告
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-reports
+          path: target/surefire-reports/
+          if-no-files-found: warn
+          retention-days: 30

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>登录 - 任务管理</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body class="center-page">
+<div class="card login-card">
+    <h2>任务管理系统</h2>
+
+    <!-- 账号密码不匹配时的整体提示 -->
+    <p class="alert" th:if="${error}" th:text="${error}">用户名或密码错误</p>
+
+    <form th:action="@{/doLogin}" th:object="${form}" method="post">
+        <label class="field">
+            <span>用户名</span>
+            <input type="text" name="username" autocomplete="username" autofocus
+                   th:value="*{username}">
+            <em class="field-error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">用户名不能为空</em>
+        </label>
+        <label class="field">
+            <span>密码</span>
+            <input type="password" name="password" autocomplete="current-password">
+            <em class="field-error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">密码不能为空</em>
+        </label>
+        <button type="submit" class="btn primary block">登录</button>
+    </form>
+</div>
+</body>
+</html>

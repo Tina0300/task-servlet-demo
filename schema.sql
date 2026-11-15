@@ -1,17 +1,28 @@
-CREATE DATABASE IF NOT EXISTS taskmaster;
-USE taskmaster;
+CREATE DATABASE IF NOT EXISTS `task_db`
+    DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `task_db`;
 
-CREATE TABLE IF NOT EXISTS t_task (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    title VARCHAR(255) NOT NULL,
-    status TINYINT NOT NULL DEFAULT 0,
-    priority VARCHAR(20) NOT NULL DEFAULT '1',
-    due_date DATE NULL,
-    create_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
-);
+CREATE TABLE IF NOT EXISTS `sys_user` (
+    `id`        BIGINT       NOT NULL AUTO_INCREMENT,
+    `username`  VARCHAR(50)  NOT NULL,
+    `password`  VARCHAR(100) NOT NULL,
+    `real_name` VARCHAR(50)  DEFAULT NULL,
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `uk_username` (`username`)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
 
-INSERT INTO t_task (title, status, priority, due_date) VALUES
-('学习 Spring MVC', 1, '2', '2026-10-27'),
-('完成任务管理系统', 0, '3', '2026-10-30'),
-('整理代码结构', 1, '1', '2026-10-26');
+CREATE TABLE IF NOT EXISTS `task` (
+    `id`        BIGINT        NOT NULL AUTO_INCREMENT,
+    `title`     VARCHAR(120)  NOT NULL,
+    `content`   VARCHAR(1000) DEFAULT NULL,
+    `priority`  TINYINT       DEFAULT 2,
+    `status`    TINYINT       DEFAULT 0,
+    `task_date` DATE          DEFAULT NULL,
+    `user_id`   BIGINT        DEFAULT NULL,
+    PRIMARY KEY (`id`),
+    KEY `idx_task_user` (`user_id`)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
 
+INSERT INTO `sys_user` (`username`, `password`, `real_name`)
+VALUES ('admin', '123456', '管理员')
+ON DUPLICATE KEY UPDATE `real_name` = VALUES(`real_name`);

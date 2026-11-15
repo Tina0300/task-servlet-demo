@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+  环节三：本文件已清空。原 selectByUsername 由 UserBussImpl 用 LambdaQueryWrapper 表达。
+  可直接删除本文件与 mapper 目录，不影响启动。
+-->
+<mapper namespace="cn.edu.mju.band.dal.UserDao">
+</mapper>

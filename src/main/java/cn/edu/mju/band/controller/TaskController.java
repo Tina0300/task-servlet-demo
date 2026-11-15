@@ -1,103 +1,101 @@
 package cn.edu.mju.band.controller;
 
-import cn.edu.mju.band.buss.ITaskBuss;
+import cn.edu.mju.band.buss.TaskBuss;
 import cn.edu.mju.band.entity.Task;
+import cn.edu.mju.band.interceptor.LoginInterceptor;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import java.text.SimpleDateFormat;
-import java.util.List;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
+@RequestMapping("/task")
 public class TaskController {
-    private final ITaskBuss taskBuss;
+    private final TaskBuss taskBuss;
 
-    /** 构造器注入：Spring 容器在创建 Bean 时通过构造器传入 ITaskBuss 实现 */
-    @org.springframework.beans.factory.annotation.Autowired
-    public TaskController(ITaskBuss taskBuss) {
+    public TaskController(TaskBuss taskBuss) {
         this.taskBuss = taskBuss;
     }
 
-    @GetMapping("/task")
-    public String list(Model model) {
-        List<Task> taskList = taskBuss.list();
-        model.addAttribute("lst", taskList);
-        return "list";
+    /**
+     * 环节三：列表改为分页 + 条件查询。
+     * 三个查询参数都是可选的，不传就等价于「第一页、每页 10 条、无过滤」。
+     */
+    @GetMapping
+    public String list(@RequestParam(value = "current", defaultValue = "1") long current,
+                       @RequestParam(value = "size", defaultValue = "10") long size,
+                       @RequestParam(value = "keyword", required = false) String keyword,
+                       @RequestParam(value = "status", required = false) Integer status,
+                       HttpSession session,
+                       Model model) {
+        Long userId = (Long) session.getAttribute(LoginInterceptor.SESSION_USER_ID);
+        IPage<Task> page = taskBuss.page(current, size, keyword, status, userId);
+        model.addAttribute("page", page);
+        model.addAttribute("tasks", page.getRecords());
+        model.addAttribute("keyword", keyword);
+        model.addAttribute("status", status);
+        return "task";
     }
 
-    @GetMapping("/task/add")
-    public String add(Model model) {
-        Task task = new Task();
-        task.setTitle("");
-        task.setPriority("1");
-        task.setStatus((byte) 0);
-        model.addAttribute("task", task);
-        return "add";
+    /** 新增表单：GET /task/add */
+    @GetMapping("/add")
+    public String addForm(Model model) {
+        model.addAttribute("task", new Task());
+        model.addAttribute("opt", "add");
+        return "add_update";
     }
 
-    @GetMapping("/task/update")
-    public String update(@RequestParam("id") Integer id, Model model) {
-        Task task = taskBuss.getById(id);
-        model.addAttribute("task", task);
-        return "add";
-    }
-
-    @GetMapping("/task/delete")
-    public String delete(@RequestParam("id") Integer id) {
-        taskBuss.delete(id);
-        return "redirect:/task";
-    }
-
-    @GetMapping("/task/start")
-    public String startTask(@RequestParam("id") Integer id) {
-        taskBuss.startTask(id);
-        return "redirect:/task";
-    }
-
-    @GetMapping("/task/finish")
-    public String finishTask(@RequestParam("id") Integer id) {
-        taskBuss.finishTask(id);
-        return "redirect:/task";
-    }
-
-    @GetMapping("/task/cancel")
-    public String cancelTask(@RequestParam("id") Integer id) {
-        taskBuss.cancelTask(id);
-        return "redirect:/task";
-    }
-
-    @PostMapping("/task/save")
-    public String save(
-            @RequestParam(value = "id", required = false) Integer id,
-            @RequestParam("title") String title,
-            @RequestParam("priority") String priority,
-            @RequestParam("status") Byte status,
-            @RequestParam(value = "dueDate", required = false) String dueDate
-    ) {
-        Task task = new Task();
-        task.setId(id);
-        task.setTitle(title);
-        task.setPriority(priority);
-        task.setStatus(status);
-
-        try {
-            if (dueDate != null && !dueDate.isEmpty()) {
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-                task.setDueDate(sdf.parse(dueDate));
-            }
-        } catch (Exception e) {
-            throw new IllegalArgumentException("日期格式不正确", e);
+    /** 修改表单：GET /task/update/5?opt=update */
+    @GetMapping("/update/{id}")
+    public String updateForm(@PathVariable("id") Long id,
+                             @RequestParam(value = "opt", defaultValue = "update") String opt,
+                             Model model) {
+        Task task = taskBuss.get(id);
+        if (task == null) {
+            return "redirect:/task";
         }
+        model.addAttribute("task", task);
+        model.addAttribute("opt", opt);
+        return "add_update";
+    }
 
-        if (id == null) {
+    /**
+     * 环节四：@Valid 触发实体上的约束注解，BindingResult 必须紧跟其后。
+     * 有错误时不进业务层，直接把带错误信息的表单回显给用户；
+     * 前端 required 只能挡住普通用户，绕过浏览器直接发 POST 时，只有这里的服务端校验生效。
+     */
+    @PostMapping("/save")
+    public String save(@Valid @ModelAttribute("task") Task task,
+                       BindingResult result,
+                       @RequestParam("opt") String opt,
+                       HttpSession session,
+                       Model model,
+                       RedirectAttributes ra) {
+        if (result.hasErrors()) {
+            // opt 决定标题显示「新增」还是「修改」，回显时必须重新带上
+            model.addAttribute("opt", opt);
+            return "add_update";
+        }
+        if ("add".equalsIgnoreCase(opt)) {
+            task.setUserId((Long) session.getAttribute(LoginInterceptor.SESSION_USER_ID));
             taskBuss.add(task);
+            ra.addFlashAttribute("msg", "新增成功");
         } else {
             taskBuss.update(task);
+            ra.addFlashAttribute("msg", "修改成功");
         }
+        return "redirect:/task";
+    }
 
+    /** 删除：POST /task/delete（用 POST 避免爬虫/预加载误删） */
+    @PostMapping("/delete")
+    public String delete(@RequestParam("id") Long id, RedirectAttributes ra) {
+        taskBuss.remove(id);
+        ra.addFlashAttribute("msg", "删除成功");
         return "redirect:/task";
     }
 }

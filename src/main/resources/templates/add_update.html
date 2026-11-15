@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${opt == 'add' ? '新增任务' : '修改任务'}">任务表单</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body class="center-page">
+<div class="card form-card">
+    <h2 th:text="${opt == 'add' ? '新增任务' : '修改任务'}">任务表单</h2>
+
+    <form th:action="@{/task/save}" th:object="${task}" method="post">
+        <!-- opt 决定后端走 add 还是 update -->
+        <input type="hidden" name="opt" th:value="${opt}">
+        <input type="hidden" name="id" th:value="*{id}">
+
+        <!-- 环节四：校验失败时的错误汇总。必须写在 th:object 的表单内部，
+             否则 Thymeleaf 取不到 BindingResult，会抛 "Could not bind form errors" -->
+        <p class="alert" th:if="${#fields.hasAnyErrors()}">表单填写有误，请检查下面标注的字段。</p>
+
+        <label class="field">
+            <span>标题</span>
+            <input type="text" name="title" maxlength="120" th:value="*{title}">
+            <em class="field-error" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">任务标题不能为空</em>
+        </label>
+
+        <label class="field">
+            <span>内容</span>
+            <textarea name="content" rows="4" th:text="*{content}"></textarea>
+            <em class="field-error" th:if="${#fields.hasErrors('content')}" th:errors="*{content}">内容过长</em>
+        </label>
+
+        <label class="field">
+            <span>优先级</span>
+            <select name="priority">
+                <option value="1" th:selected="${task.priority == 1}">低</option>
+                <option value="2" th:selected="${task.priority == null or task.priority == 2}">中</option>
+                <option value="3" th:selected="${task.priority == 3}">高</option>
+            </select>
+        </label>
+
+        <label class="field">
+            <span>截止日期</span>
+            <input type="date" name="taskDate"
+                   th:value="${task.taskDate != null ? #temporals.format(task.taskDate, 'yyyy-MM-dd') : ''}">
+            <em class="field-error" th:if="${#fields.hasErrors('taskDate')}" th:errors="*{taskDate}">日期格式不正确</em>
+        </label>
+
+        <label class="field">
+            <span>状态</span>
+            <select name="status">
+                <option value="0" th:selected="${task.status == null or task.status == 0}">未完成</option>
+                <option value="1" th:selected="${task.status == 1}">已完成</option>
+            </select>
+        </label>
+
+        <div class="actions">
+            <button type="submit" class="btn primary">保存</button>
+            <a class="btn" th:href="@{/task}">返回列表</a>
+        </div>
+    </form>
+</div>
+</body>
+</html>

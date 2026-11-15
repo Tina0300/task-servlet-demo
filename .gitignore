@@ -48,3 +48,12 @@ logs/
 work/
 src/main/webapp/WEB-INF/classes/
 
+### 本项目的构建日志与页面验收中间产物（环节一：不让脏文件进仓库）###
+*.log
+verify-tmp/
+*.exec
+
+# 本地运行日志
+*.err
+# 本机 Maven 个人配置
+settings-aliyun.xml
