@@ -1,6 +1,6 @@
 # 接口手册（API Reference）
 
-> 本系统为**服务端渲染（SSR）**应用，接口均为 Spring MVC 的 HTML 端点，返回 Thymeleaf 视图名或 302 重定向，
+> 本系统为**服务端渲染（SSR）应用**，接口均为 Spring MVC 的 HTML 端点，返回 Thymeleaf 视图名或 302 重定向，
 > 而非 JSON REST 接口。表单提交使用 `application/x-www-form-urlencoded`。
 
 - 服务地址（dev）：`http://localhost:8080`
@@ -14,17 +14,18 @@
 
 | # | 方法 | 路径 | 功能 | 鉴权 | 返回 |
 |---|---|---|---|---|---|
-| 1 | GET | `/`、`/index` | 首页 | 需要 | 视图 `index` |
-| 2 | GET | `/login` | 登录页 | 免登录 | 视图 `login` |
-| 3 | POST | `/doLogin` | 登录提交 | 免登录 | 302 `/index` 或视图 `login` |
-| 4 | GET | `/logout` | 退出登录 | 需要 | 302 `/login` |
-| 5 | GET | `/task` | 任务列表（分页 + 条件查询） | 需要 | 视图 `task` |
-| 6 | GET | `/task/add` | 新增表单 | 需要 | 视图 `add_update` |
-| 7 | GET | `/task/update/{id}` | 编辑表单 | 需要 | 视图 `add_update` 或 302 `/task` |
-| 8 | POST | `/task/save` | 保存（新增/修改） | 需要 | 302 `/task` 或视图 `add_update` |
-| 9 | POST | `/task/delete` | 删除任务 | 需要 | 302 `/task` |
+| 1 | GET | `/`、`/index` | 首页 | ✔ | 视图 `index` |
+| 2 | GET | `/login` | 登录页 | — | 视图 `login` |
+| 3 | POST | `/doLogin` | 登录提交 | — | 302 `/index` 或视图 `login` |
+| 4 | GET | `/logout` | 退出登录 | ✔ | 302 `/login` |
+| 5 | GET | `/task` | 任务列表（分页 + 条件查询） | ✔ | 视图 `task` |
+| 6 | GET | `/task/add` | 新增表单 | ✔ | 视图 `add_update` |
+| 7 | GET | `/task/update/{id}` | 编辑表单 | ✔ | 视图 `add_update` 或 302 `/task` |
+| 8 | POST | `/task/save` | 保存（新增/修改） | ✔ | 302 `/task` 或视图 `add_update` |
+| 9 | POST | `/task/delete` | 删除任务 | ✔ | 302 `/task` |
 
-> 「鉴权：需要」表示由 `LoginInterceptor` 拦截，未登录时返回 **302 → `/login`**。
+> **鉴权图例**：`✔` 表示需要登录态，由 `LoginInterceptor` 拦截，未登录时返回 **302 → `/login`**；
+> `—` 表示免登录访问（白名单）。
 > 白名单：`/login`、`/doLogin`、`/logout`、`/css/**`、`/js/**`、`/images/**`、`/webjars/**`、`/favicon.ico`、`/error`、`/error/**`。
 
 ---
