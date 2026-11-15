@@ -31,3 +31,13 @@ CREATE TABLE IF NOT EXISTS `task` (
 INSERT INTO `sys_user` (`username`, `password`, `real_name`)
 VALUES ('admin', '123456', 'admin')
 ON DUPLICATE KEY UPDATE `real_name` = VALUES(`real_name`);
+
+-- 测试库预置演示任务（与开发库保持一致，便于 test 环境演示）
+SET @admin_id = (SELECT `id` FROM `sys_user` WHERE `username` = 'admin' LIMIT 1);
+
+INSERT INTO `task` (`title`, `content`, `priority`, `status`, `task_date`, `user_id`) VALUES
+('完成实验报告',   '环节二技术文档撰写，含 README 与 API 手册', 3, 0, '2026-11-20', @admin_id),
+('准备答辩 PPT',   '整理 CI 流水线截图与演进复盘',            2, 0, '2026-11-22', @admin_id),
+('复习 JUnit5',    'Mockito 打桩、断言与极端场景测试',         2, 1, '2026-11-10', @admin_id),
+('整理实验截图',   '按截图清单逐项存档，用于报告佐证',          1, 1, '2026-11-15', @admin_id),
+('优化分页查询',   'keyword 与 status 组合条件，验证分页插件',  3, 0, '2026-11-25', @admin_id);
