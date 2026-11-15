@@ -6,25 +6,28 @@ import cn.edu.mju.band.interceptor.LoginInterceptor;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.Objects;
+
 @Controller
 @RequestMapping("/task")
 public class TaskController {
+
+    private static final Logger log = LoggerFactory.getLogger(TaskController.class);
+
     private final TaskBuss taskBuss;
 
     public TaskController(TaskBuss taskBuss) {
         this.taskBuss = taskBuss;
     }
 
-    /**
-     * 环节三：列表改为分页 + 条件查询。
-     * 三个查询参数都是可选的，不传就等价于「第一页、每页 10 条、无过滤」。
-     */
     @GetMapping
     public String list(@RequestParam(value = "current", defaultValue = "1") long current,
                        @RequestParam(value = "size", defaultValue = "10") long size,
@@ -41,7 +44,6 @@ public class TaskController {
         return "task";
     }
 
-    /** 新增表单：GET /task/add */
     @GetMapping("/add")
     public String addForm(Model model) {
         model.addAttribute("task", new Task());
@@ -49,25 +51,35 @@ public class TaskController {
         return "add_update";
     }
 
-    /** 修改表单：GET /task/update/5?opt=update */
+    /**
+     * 查看编辑表单前校验任务归属。
+     * 归属不一致或数据缺失时一律拒绝，并记录审计日志。
+     */
     @GetMapping("/update/{id}")
     public String updateForm(@PathVariable("id") Long id,
                              @RequestParam(value = "opt", defaultValue = "update") String opt,
+                             HttpSession session,
+                             RedirectAttributes ra,
                              Model model) {
+        Long userId = (Long) session.getAttribute(LoginInterceptor.SESSION_USER_ID);
         Task task = taskBuss.get(id);
+
         if (task == null) {
+            ra.addFlashAttribute("msg", "任务不存在或已被删除");
             return "redirect:/task";
         }
+        if (!Objects.equals(task.getUserId(), userId)) {
+            log.warn("越权编辑被拦截 taskId={} ownerId={} currentUserId={}",
+                    id, task.getUserId(), userId);
+            ra.addFlashAttribute("msg", "无权操作该任务");
+            return "redirect:/task";
+        }
+
         model.addAttribute("task", task);
         model.addAttribute("opt", opt);
         return "add_update";
     }
 
-    /**
-     * 环节四：@Valid 触发实体上的约束注解，BindingResult 必须紧跟其后。
-     * 有错误时不进业务层，直接把带错误信息的表单回显给用户；
-     * 前端 required 只能挡住普通用户，绕过浏览器直接发 POST 时，只有这里的服务端校验生效。
-     */
     @PostMapping("/save")
     public String save(@Valid @ModelAttribute("task") Task task,
                        BindingResult result,
@@ -76,7 +88,6 @@ public class TaskController {
                        Model model,
                        RedirectAttributes ra) {
         if (result.hasErrors()) {
-            // opt 决定标题显示「新增」还是「修改」，回显时必须重新带上
             model.addAttribute("opt", opt);
             return "add_update";
         }
@@ -91,9 +102,27 @@ public class TaskController {
         return "redirect:/task";
     }
 
-    /** 删除：POST /task/delete（用 POST 避免爬虫/预加载误删） */
+    /**
+     * 删除前校验任务归属，三种结果分别给出明确提示，越权尝试留痕。
+     */
     @PostMapping("/delete")
-    public String delete(@RequestParam("id") Long id, RedirectAttributes ra) {
+    public String delete(@RequestParam("id") Long id,
+                         HttpSession session,
+                         RedirectAttributes ra) {
+        Long userId = (Long) session.getAttribute(LoginInterceptor.SESSION_USER_ID);
+        Task task = taskBuss.get(id);
+
+        if (task == null) {
+            ra.addFlashAttribute("msg", "任务不存在或已被删除");
+            return "redirect:/task";
+        }
+        if (!Objects.equals(task.getUserId(), userId)) {
+            log.warn("越权删除被拦截 taskId={} ownerId={} currentUserId={}",
+                    id, task.getUserId(), userId);
+            ra.addFlashAttribute("msg", "无权操作该任务");
+            return "redirect:/task";
+        }
+
         taskBuss.remove(id);
         ra.addFlashAttribute("msg", "删除成功");
         return "redirect:/task";
